@@ -1,0 +1,14 @@
+memory for 128 max len =  11725MiB
+test results = Precision, Recall, F1, Support: (0.696, 0.8969072164948454, 0.7837837837837837, None)
+
+memory for 256 max len =  11725MiB
+Precision, Recall, F1, Support: (0.7525773195876289, 0.7525773195876289, 0.752577319587629, None)
+
+memory for 512 max len =  11725MiB
+Precision, Recall, F1, Support: (0.7238095238095238, 0.7835051546391752, 0.7524752475247525, None)
+Precision, Recall, F1, Support: (0.7090909090909091, 0.8041237113402062, 0.753623188405797, None)
+
+
+
+memory for 512 max len =  11769MiB, when manually changing input mask 104 to 2 (predicts all 1s)
+Precision, Recall, F1, Support: (0.5987654320987654, 1.0, 0.749034749034749, None)
