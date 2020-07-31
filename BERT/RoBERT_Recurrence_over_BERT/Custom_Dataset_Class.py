@@ -13,8 +13,8 @@ import numpy as np
 from sklearn.preprocessing import LabelEncoder
 import re
 from sklearn.model_selection import train_test_split
-from transformers import BertTokenizer
-from transformers import BertForSequenceClassification, AdamW, BertConfig
+from transformers import DistilBertTokenizer
+from transformers import DistilBertForSequenceClassification, AdamW, DistilBertConfig
 from torch.utils.data import TensorDataset, DataLoader, RandomSampler, SequentialSampler
 
 import torch.nn as nn
@@ -22,7 +22,7 @@ from torch.utils.data import Dataset, DataLoader, random_split
 from torch.utils.data.sampler import SubsetRandomSampler
 import transformers
 # get_linear_schedule_with_warmup
-from transformers import RobertaTokenizer, BertTokenizer, RobertaModel, BertModel, AdamW
+from transformers import RobertaTokenizer, DistilBertTokenizer, RobertaModel, DistilBertModel, AdamW
 from transformers import get_linear_schedule_with_warmup
 import time
 
@@ -56,7 +56,7 @@ class ICAADDataset1(Dataset):
         data labels
     """
 
-    def __init__(self, tokenizer, max_len, chunk_len=200, overlap_len=50, approach="all", max_size_dataset=None, file_location="../../w266_project/data/train.csv", min_len=249):
+    def __init__(self, tokenizer, max_len, chunk_len=200, overlap_len=50, approach="all", max_size_dataset=None, file_location="train_val.csv", min_len=249):
         self.tokenizer = tokenizer
         self.max_len = max_len
         self.overlap_len = overlap_len
@@ -85,12 +85,9 @@ class ICAADDataset1(Dataset):
         print("Nettoyage des données")
         train_raw = pd.read_csv(file_location, dtype="unicode")
         train_raw = train_raw.assign(
-            len_txt=train_raw.cleaned_contents.apply(lambda x: len(x.split())))
+            len_txt=train_raw.text.apply(lambda x: len(x.split())))
         train_raw = train_raw[train_raw.len_txt > self.min_len]
-        train_raw = train_raw[['cleaned_contents', 'Discrimination_Label']]
         train_raw.reset_index(inplace=True, drop=True)
-        train_raw = train_raw.rename(
-            columns={'cleaned_contents': 'text', 'Discrimination_Label': 'label'})
         LE = LabelEncoder()
         train_raw['label'] = LE.fit_transform(train_raw['label'])
         train = train_raw.copy()

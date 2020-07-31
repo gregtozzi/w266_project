@@ -30,8 +30,7 @@ class Bert_Classification_Model(nn.Module):
 
     def __init__(self):
         super(Bert_Classification_Model, self).__init__()
-        #self.bert_path = 'bert-base-uncased'
-        self.bert_path = "distilbert-base-uncased"
+        self.bert_path = 'bert-base-uncased'
         self.bert = transformers.BertModel.from_pretrained(self.bert_path)
         # self.bert_drop=nn.Dropout(0.2)
         # self.fc=nn.Linear(768,256)

@@ -37,7 +37,7 @@ class BERT_Hierarchical_Model(nn.Module):
 
         self.bert_path = 'bert-base-uncased'
         self.bert = transformers.BertModel.from_pretrained(self.bert_path)
-        self.out = nn.Linear(768, 10)
+        self.out = nn.Linear(768, 2)
 
     def forward(self, ids, mask, token_type_ids, lengt):
 

@@ -40,7 +40,7 @@ class RoBERT_Model(nn.Module):
         super(RoBERT_Model, self).__init__()
         self.bertFineTuned = bertFineTuned
         self.lstm = nn.LSTM(768, 100, num_layers=1, bidirectional=False)
-        self.out = nn.Linear(100, 10)
+        self.out = nn.Linear(100, 2)
 
     def forward(self, ids, mask, token_type_ids, lengt):
         """ Define how to performed each call
