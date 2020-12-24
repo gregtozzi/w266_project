@@ -6,6 +6,6 @@
 
 ### Files in this Repo
 
-Each numbered file corresponds to a section in the report.  Section 6 (Explainability) does not have any unique code but draws on results elsewhere in the files.  Most files are divided into `notebooks`, `models`, and `archive` folders.  The `notebooks` folder contains Jupyter notebooks that directly support the text.  The `archive` folders contain many notebooks that explore areas we chose not to write about.  The `archive` folder at the top level of the repo contains work that did not fit neatly into any section.
+Each numbered file corresponds to a section in the report.  Most files are divided into `notebooks`, `models`, and `archive` folders.  The `notebooks` folder contains Jupyter notebooks that directly support the text.  The `archive` folders contain many notebooks that explore areas we chose not to write about.  The `archive` folder at the top level of the repo contains work that did not fit neatly into any section.
 
 ### [Read the Report](https://github.com/gregtozzi/w266_project/blob/master/0_Report/w266_final_project.pdf)
